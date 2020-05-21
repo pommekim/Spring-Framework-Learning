@@ -27,16 +27,10 @@ public class CalcTest {
 	
 	
 	
+
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

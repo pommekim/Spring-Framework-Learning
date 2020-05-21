@@ -4,15 +4,28 @@
 
 	<!-- Appenders -->
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<!-- value값을 System.err로 바꾸면 단지 빨간 글씨로 나옴 -->
 		<param name="Target" value="System.out" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
 		</layout>
 	</appender>
 	
+	<appender name="rolling" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="D:/log/home.html" />
+		<param name="MaxFileSize" value="10KB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.HTMLLayout" />
+<!-- 		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout> -->
+	</appender>
+	
 	<!-- Application Loggers -->
 	<logger name="com.kg.controller">
 		<level value="info" />
+		<!-- 위 rolling 어펜더를 가져다 쓰겠다! -->
+		<appender-ref ref="rolling" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
