@@ -10,9 +10,16 @@
 		</layout>
 	</appender>
 	
-	<appender name="rolling2" class="org.apache.log4j.RollingFileAppender">
+<!-- 	<appender name="rolling2" class="org.apache.log4j.RollingFileAppender">
 		<param name="file" value="D:/log/rolling2.html" />
 		<param name="MaxFileSize" value="10KB" />
+		<param name="MaxBackupIndex" value="5" />
+		<layout class="org.apache.log4j.HTMLLayout" />
+	</appender> -->
+	
+	<appender name="html" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="D:/log/subtest.html" />
+		<param name="MaxFileSize" value="100KB" />
 		<param name="MaxBackupIndex" value="5" />
 		<layout class="org.apache.log4j.HTMLLayout" />
 	</appender>
@@ -22,9 +29,14 @@
 		<level value="info" />
 	</logger>
 	
-	<logger name="com.kg.util">
+<!-- 	<logger name="com.kg.util.SubTest">
 		<level value="info" />
 		<appender-ref ref="rolling2" />
+	</logger> -->
+	
+	<logger name="com.kg.util">
+		<level value="info" />
+		<appender-ref ref="html" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
