@@ -1,5 +1,6 @@
 package com.kg.beans;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,6 +17,29 @@ public class User {
 	// 바인딩 정책과 비슷한 역할을 하는 어노테이션 @DateTimeFormat
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date joinDate;
+	
+	// toString()을 오버라이드 하면 이 객체가 문자열로 표현될 때 어떻게 표현될지 설정할 수 있다.
+	@Override
+	public String toString() {
+//		return super.toString(); //자기 주소를 찍어주는 기본 toString()
+		
+		SimpleDateFormat dateForm = new SimpleDateFormat("yy년 MM월 dd일");
+		String date = dateForm.format(joinDate);
+
+		return String.format("가입일 : %s<br>이름 : %s<br>나이 : %d<br>", date, name, age);
+		//date자리에 joinDate.toString()도 사용 가능!!!
+	}
+	
+	
+	// hashCode는 객체의 고유 번호 (주소값 아님)
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+	
+	
+	
 	
 	public Date getJoinDate() {
 		return joinDate;
